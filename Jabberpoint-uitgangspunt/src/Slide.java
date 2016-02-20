@@ -1,6 +1,7 @@
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.ImageObserver;
+import java.util.Iterator;
 import java.util.Vector;
 
 /** <p>Een slide. Deze klasse heeft tekenfunctionaliteit.</p>
@@ -16,11 +17,12 @@ import java.util.Vector;
 public class Slide {
 	public final static int WIDTH = 1200;
 	public final static int HEIGHT = 800;
-	protected String title; // de titel wordt apart bewaard
+	protected TextItem title; // de titel wordt apart bewaard
 	protected Vector<SlideItem> items; // de slide-items worden in een Vector bewaard
 
 	public Slide() {
 		items = new Vector<SlideItem>();
+		title = new TextItem(0, "");
 	}
 
 	// Voeg een SlideItem toe
@@ -30,12 +32,12 @@ public class Slide {
 
 	// geef de titel van de slide
 	public String getTitle() {
-		return title;
+		return title.getText();
 	}
 
 	// verander de titel van de slide
 	public void setTitle(String newTitle) {
-		title = newTitle;
+		title = new TextItem(0, newTitle);
 	}
 
 	// Maak een TextItem van String, en voeg het TextItem toe
@@ -53,6 +55,13 @@ public class Slide {
 		return items;
 	}
 
+	private Vector<SlideItem> getSlideItemsToDraw() {
+		Vector<SlideItem> drawItems = new Vector<SlideItem>(getSlideItems().size() + 1);
+		drawItems.addElement(title);
+		drawItems.addAll(items);
+		return drawItems;
+	}
+	
 	// geef de afmeting van de Slide
 	public int getSize() {
 		return items.size();
@@ -62,17 +71,13 @@ public class Slide {
 	public void draw(Graphics g, Rectangle area, ImageObserver view) {
 		float scale = getScale(area);
 	    int y = area.y;
-	// De titel wordt apart behandeld
-	    SlideItem slideItem = new TextItem(0, getTitle());
-	    Style style = Style.getStyle(slideItem.getLevel());
-	    slideItem.draw(area.x, y, scale, g, style, view);
-	    y += slideItem.getBoundingBox(g, view, scale, style).height;
-	    for (int number=0; number<getSize(); number++) {
-	      slideItem = (SlideItem)getSlideItems().elementAt(number);
-	      style = Style.getStyle(slideItem.getLevel());
-	      slideItem.draw(area.x, y, scale, g, style, view);
-	      y += slideItem.getBoundingBox(g, view, scale, style).height;
-	    }
+	    
+	    for (Iterator<SlideItem> slideIterator = getSlideItemsToDraw().iterator(); slideIterator.hasNext();) {
+			SlideItem slideItem = slideIterator.next();
+			Style style = Style.getStyle(slideItem.getLevel());
+		      slideItem.draw(area.x, y, scale, g, style, view);
+		      y += slideItem.getBoundingBox(g, view, scale, style).height;
+		}
 	  }
 
 	// geef de schaal om de slide te kunnen tekenen
