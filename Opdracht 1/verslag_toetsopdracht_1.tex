@@ -1,0 +1,96 @@
+\documentclass[a4paper]{article}
+
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+
+
+\newcommand{\todo}[1]{\textcolor{red}{[#1]}}
+\lhead{Open Universiteit}
+\chead{IM0102, Design patterns}
+\rhead{Toetsopdracht 1}
+
+\begin{document}
+\pagestyle{fancy}
+
+\section*{Studentgegevens}
+\begin{description}
+	\item [Cursuscode] IM0102
+	\item [Naam] Frederiek Vandepitte 
+	\item [Studentnummer] 851780872 
+\end{description}
+
+\section{Probleemanalyse}
+\subsection{Definities}
+\begin{tabularx}{\textwidth}{ | l | X |}
+	\hline
+	\textbf{Naam} & \textbf{Definitie}\\ \hline
+	\textbf{Literatuurlijst} & Dit is een lijst dat bestaat uit één of meerdere \textbf{referenties}, opgemaakt volgens een bepaalde \textbf{referentie stijl}.\\ \hline
+	\textbf{Referentie} & Dit verwijst naar een boek, artikel, paper of andere soort informatiebron. De \textbf{referentie} is opgemaakt uit een aantal \textbf{referentievelden}. Welke \textbf{velden} verplicht zijn, zijn afhankelijk van de \textbf{soort} en \textbf{stijl}.\\ \hline
+	\textbf{Referentieveld} & Bestaat uit een naam (zoals \emph{author}, \emph{bookTitle}, \emph{year},...) en een waarde voor het \textbf{veld}. \\ \hline
+	\textbf{Referentiesoort} & Een beschrijving van het medium waar de referentie naartoe verwijst. Mogelijke waarden zijn bijvoorbeeld boek, artikel, paper, enzovoort.\\ \hline
+	\textbf{Opslagformaat} & Beschrijft hoe we de \textbf{referenties} zullen bewaren.\\ \hline
+	\textbf{Referentie stijl} & De \textbf{stijl} beschrijft hoe de \textbf{referenties} weergeven worden in de \textbf{literatuurlijst}. De \textbf{stijl} gaat bepalen voor elke \textbf{soort} welke \textbf{velden} verplicht zijn.\\ \hline
+\end{tabularx}
+
+\subsection{Algemene CVA}
+\begin{tabularx}{\textwidth}{ | l | X |}
+	\hline
+	\textbf{Commonality} & \textbf{Variantions}\\ \hline
+	\textbf{Referentieveld (naam)} & Author\\
+	  & BookTitle\\ 
+	  & Year\\ 
+	  & Publisher\\ 
+	  & ...\\ \hline
+	\textbf{Referentiesoort} & Book\\
+	  & Article\\ 
+	  & Paper\\ 
+	  & Webpage\\ 
+	  & ...\\ \hline
+	\textbf{Opslagformaat} & XML\\
+	  & bibtext\\ 
+	  & Databank\\ \hline
+	\textbf{Referentie stijl} & APA\\
+	  & Turabian\\ 
+	  & Chicago\\ \hline
+\end{tabularx}
+
+\subsection{Verdere analyse van `'Referentie stijl`'}
+\textbf{Referentie stijl} heeft op dit moment 3 verschillende verantwoordelijkheden:
+\begin{itemize}
+	\item Validatie van de \textbf{referenties}, per soort gaat deze af welke velden er verplicht zijn.
+	\item Sorteren van de \textbf{velden} in de \textbf{referenties}, dit is opnieuw soort afhankelijk.
+	\item Formatteren van de \textbf{velden} in de velden \textbf{referenties}
+\end{itemize}
+
+ 
+
+\section{Ontwerp}
+\todo{Vermeld hier de naam van het png-bestand met het klassendiagram (of meerdere namen).}
+
+\todo{Geef per zelf ontworpen klasse aan:
+\begin{itemize}
+	\item Naam van de klasse
+	\item	Verantwoordelijkheid (het belangrijkste onderdeel van de beschrijving)
+	\item	Eventueel aanvullende informatie over attributen en methoden.
+\end{itemize}
+}
+
+\todo{Geef aan hoe u tot het ontwerp bent gekomen vanuit de probleemanalyse. Wat waren de denkstappen?}
+
+\section{Toegepaste patterns}
+\todo{ Geef per design pattern aan:
+\begin{itemize}
+	\item Naam van het pattern
+	\item	Welk deelprobleem van de casus lost het op?
+	\item	Hoe heeft u het pattern gebruikt, en voor zover van toepassing voor welke variant heeft u gekozen? Geef hierbij de namen van de klassen uit het klassendiagram, en geef aan hoe ze overeenkomen met klassen uit het klassendiagram van het pattern uit het tekstboek. Als het pattern op meerdere plaatsen in het ontwerp voorkomt, geef dat aan.
+	\item	Geef eventuele alternatieve oplossingen aan, en argumenteer waarom u voor deze oplossing hebt gekozen. Vergelijk beide oplossingen op flexibiliteit en complexiteit.
+	\end{itemize}
+}
+
+\section{Overige ontwerpbeslissingen}
+\todo{Beschrijf de overige ontwerpbeslissingen die je hebt genomen. Geef daarbij alternatieven aan, en vergelijk de oplossingen op flexibiliteit en complexiteit.}
+
+\section{Toekomstige variaties}
+\todo{Geef een voorbeeld van een toekomstige variatie die gemakkelijk te implementeren is, en een voorbeeld van een toekomstige variatie die lastig is te implementeren. Beargumenteer waarom.}
+\end{document}
