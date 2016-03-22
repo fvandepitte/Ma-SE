@@ -3,8 +3,10 @@
 \usepackage{xcolor}
 \usepackage{fancyhdr}
 \usepackage{tabularx}
+\usepackage{scrextend}
+\usepackage{enumitem}
 
-
+\addtokomafont{labelinglabel}{\sffamily}
 \newcommand{\todo}[1]{\textcolor{red}{[#1]}}
 \lhead{Open Universiteit}
 \chead{IM0102, Design patterns}
@@ -63,18 +65,90 @@
 	\item Formatteren van de \textbf{velden} in de velden \textbf{referenties}
 \end{itemize}
 
- 
-
 \section{Ontwerp}
-\todo{Vermeld hier de naam van het png-bestand met het klassendiagram (of meerdere namen).}
+Het voledige ontwerp is te vinden in bijlage ``''Ontwerp.png``''.
+\subsection{Literatuurlijst}
+\subsubsection{Beschrijving}
+De \textbf{literatuurlijst} is het hart van onze constructie. De \textbf{literatuurlijst} bevat een lijst een van \textbf{referenties} dat hij verkrijgt door het aanspreken van een \textbf{repository}.\tabularnewline
+De \textbf{lijst} kan dan zijn \textbf{referenties} laten behandelen door een \textbf{referentiestijl} naar keuze dat hij creëert met behulp van een \textbf{referentie factory}.
 
-\todo{Geef per zelf ontworpen klasse aan:
-\begin{itemize}
-	\item Naam van de klasse
-	\item	Verantwoordelijkheid (het belangrijkste onderdeel van de beschrijving)
-	\item	Eventueel aanvullende informatie over attributen en methoden.
-\end{itemize}
-}
+\subsubsection{Attributen en Methoden}
+\begin{description}
+	\item [Attributen] { ~
+	\begin{labeling}{VerwijderReferentie}
+		\item [Referenties] Lijst van \textbf{Referentie}-objecten
+		\item [Repository] Huidige \textbf{Repository}-object
+		\item [ReferentieStijl] Huidige \textbf{Stijl}-object
+	\end{labeling}
+	}
+	\item [Methoden] { ~
+	\begin{labeling}{VerwijderReferentie}
+		\item [Getters] { ~
+		\begin{itemize}[label={}]
+			\item Repository
+			\item ReferentieStijl
+			\item Referenties
+		\end{itemize}
+		}
+		\item [Setters] { ~
+		\begin{itemize}[label={}]
+			\item Repository
+			\item ReferentieStijl
+		\end{itemize}
+		}
+		\item [VoegReferentieToe] Voeg een nieuwe \textbf{Referentie}-object toe aan de lijst
+		\item [VerwijderReferentie] Verwijdert een \textbf{Referentie}-object uit de lijst
+	\end{labeling}
+	}
+\end{description}
+
+\subsection{Referentie}
+\subsubsection{Beschrijving}
+De \textbf{referentie} heeft een verzameling van \textbf{referentie velden}. Daarnaast kunnen ze worden geïdentificeerd door een \emph{label} en behoren ze tot een \textbf{referentie soort}. De \textbf{referentie soort} kan op dynamische wijze aangepast worden.
+
+\subsubsection{Attributen en Methoden}
+\begin{description}
+	\item [Attributen] { ~
+	\begin{labeling}{VerwijderReferentie}
+		\item [Label] Zorgt ervoor dat we de referentie kunnen identificeren in een lijst
+		\item [Velden] Huidige lijst van \textbf{RefentieVeld}-objecten
+		\item [Soort] Huidige \textbf{RefentieSoort}-object
+	\end{labeling}
+	}
+	\item [Methoden] { Getters en Setters voor de attributen }
+\end{description}
+
+\subsection{ReferentieSoort}
+\subsubsection{Beschrijving}
+\subsubsection{Attributen en Methoden}
+
+\subsection{ReferentieVeld}
+\subsubsection{Beschrijving}
+\subsubsection{Attributen en Methoden}
+
+\subsection{Repository}
+\subsubsection{Beschrijving}
+\subsubsection{Attributen en Methoden}
+
+\subsection{ReferentieStijl}
+\subsubsection{Beschrijving}
+\subsubsection{Attributen en Methoden}
+
+\subsection{ReferentieValidator}
+\subsubsection{Beschrijving}
+\subsubsection{Attributen en Methoden}
+
+\subsection{ReferentieVeldSorteerder}
+\subsubsection{Beschrijving}
+\subsubsection{Attributen en Methoden}
+
+\subsection{ReferentieVeldFormateerder}
+\subsubsection{Beschrijving}
+\subsubsection{Attributen en Methoden}
+
+\subsection{ReferentieStijlFactory}
+\subsubsection{Beschrijving}
+\subsubsection{Attributen en Methoden}
 
 \todo{Geef aan hoe u tot het ontwerp bent gekomen vanuit de probleemanalyse. Wat waren de denkstappen?}
 
