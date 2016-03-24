@@ -115,16 +115,72 @@ De \textbf{referentie} heeft een verzameling van \textbf{referentie velden}. Daa
 		\item [Soort] Huidige \textbf{RefentieSoort}-object
 	\end{labeling}
 	}
-	\item [Methoden] { Getters en Setters voor de attributen }
+	\item [Methoden] { ~
+	\begin{labeling}{VerwijderReferentie}
+		\item [Getters] { ~
+		\begin{itemize}[label={}]
+			\item Label
+			\item Velden
+			\item Soort
+		\end{itemize}
+		}
+		\item [Setters] { ~
+		\begin{itemize}[label={}]
+			\item Soort
+		\end{itemize}
+		}
+		\item [VoegVeldToe] Voeg een nieuwe \textbf{ReferentieVeld}-object toe aan de lijst
+		\item [VerwijderVeld] Verwijdert een \textbf{ReferentieVeld}-object uit de lijst
+	\end{labeling}
 \end{description}
 
 \subsection{ReferentieSoort}
 \subsubsection{Beschrijving}
+Bepaald de soort van een \textbf{Referentie}. \textbf{ReferentieSoort} zelf is \emph{Abstract}.
 \subsubsection{Attributen en Methoden}
+\begin{description}
+	\item [Attributen] Geen
+	\item [Methoden] { ~
+	\begin{labeling}{VerwijderReferentie}
+		\item [GetSoort] Retourneerd de naam van de soort.
+	\end{labeling}
+\end{description}
+
+\subsubsection{Concrete inplimentaties}
+\begin{itemize}
+	\item BoekReferentieSoort
+	\item ArtiekelReferentieSoort
+	\item WebPaginaReferentieSoort
+	\item ...
+\end{itemize}
 
 \subsection{ReferentieVeld}
 \subsubsection{Beschrijving}
+Bevat een bescrhijving voor een \textbf{veld} en de waarde voor die bescrhijving.
 \subsubsection{Attributen en Methoden}
+\begin{description}
+	\item [Attributen] { ~
+	\begin{labeling}{VerwijderReferentie}
+		\item [Naam] Geeft een beschrijving van het \textbf{ReferentieVeld}.
+		\item [Waarde] Is de waarde voor een \textbf{ReferentieVeld}.
+	\end{labeling}
+	}
+	\item [Methoden] { ~
+	\begin{labeling}{VerwijderReferentie}
+		\item [Getters] { ~
+		\begin{itemize}[label={}]
+			\item Naam
+			\item Waarde
+		\end{itemize}
+		}
+		\item [Setters] { ~
+		\begin{itemize}[label={}]
+			\item Naam
+			\item Waarde
+		\end{itemize}
+		}
+	\end{labeling}
+\end{description}
 
 \subsection{Repository}
 \subsubsection{Beschrijving}
